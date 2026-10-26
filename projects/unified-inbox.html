@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Unified Inbox — Gļebs Ostapko</title>
+  <meta
+    name="description"
+    content="Unified Inbox is a Java Spring Boot backend project for managing conversations across multiple messaging platforms."
+  >
+
+  <meta property="og:title" content="Unified Inbox — Gļebs Ostapko">
+  <meta
+    property="og:description"
+    content="A multi-platform messaging application built with Java, Spring Boot, PostgreSQL, and REST APIs."
+  >
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+
+      <div class="nav-left">
+        <div class="nav-links">
+          <a href="../index.html" class="active">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+      </div>
+
+      <button
+        class="nav-burger"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <div class="nav-mobile" aria-hidden="true"></div>
+
+  <!-- Project -->
+  <main class="main main--case">
+
+    <div class="case-meta">
+      Personal Project · Backend Development · 2026
+    </div>
+
+    <h1 class="case-h1">Unified Inbox</h1>
+
+    <p class="case-description">
+      A centralized messaging application designed to
+      manage conversations from multiple communication
+      platforms through a unified interface.
+    </p>
+
+    <div class="case-body">
+
+      <!-- Overview -->
+      <section class="case-section">
+        <span class="case-section-num">01</span>
+        <h2 class="case-section-title">Overview</h2>
+
+        <p>
+          Unified Inbox is a personal backend development
+          project built to explore the architecture of
+          multi-platform messaging systems.
+        </p>
+
+        <p>
+          The application aims to bring messages from
+          different communication services into one
+          interface, allowing users to manage integrations,
+          conversations, and messages in a centralized way.
+        </p>
+      </section>
+
+      <!-- Technologies -->
+      <section class="case-section">
+        <span class="case-section-num">02</span>
+        <h2 class="case-section-title">Tech Stack</h2>
+
+        <ul>
+          <li><strong>Java</strong> — backend development</li>
+          <li><strong>Spring Boot</strong> — application framework</li>
+          <li><strong>Spring Data JPA</strong> — database persistence</li>
+          <li><strong>PostgreSQL</strong> — relational database</li>
+          <li><strong>Flyway</strong> — database migrations</li>
+          <li><strong>REST APIs</strong> — client-server communication</li>
+          <li><strong>Git & GitHub</strong> — version control</li>
+        </ul>
+      </section>
+
+      <!-- Architecture -->
+      <section class="case-section">
+        <span class="case-section-num">03</span>
+        <h2 class="case-section-title">Architecture</h2>
+
+        <p>
+          The application follows a layered backend
+          architecture, separating HTTP request handling,
+          business logic, and data persistence.
+        </p>
+
+        <p>
+          External communication platforms are integrated
+          through dedicated components, helping isolate
+          platform-specific functionality from the
+          application's core messaging logic.
+        </p>
+
+        <ul>
+          <li>Controllers — expose REST endpoints</li>
+          <li>Services — implement application logic</li>
+          <li>Repositories — manage database operations</li>
+          <li>Integration adapters — communicate with external platforms</li>
+          <li>Webhooks — process incoming platform events</li>
+        </ul>
+      </section>
+
+      <!-- Features -->
+      <section class="case-section">
+        <span class="case-section-num">04</span>
+        <h2 class="case-section-title">Core Features</h2>
+
+        <ul>
+          <li>Organization-based access to messaging resources</li>
+          <li>Management of external platform connections</li>
+          <li>Centralized conversations and message storage</li>
+          <li>REST endpoints for working with messages</li>
+          <li>Webhook processing for incoming events</li>
+          <li>Database schema management using Flyway</li>
+        </ul>
+
+        <p>
+          Features and integrations are being developed
+          and refined as the project evolves.
+        </p>
+      </section>
+
+      <!-- Technical Challenges -->
+      <section class="case-section">
+        <span class="case-section-num">05</span>
+        <h2 class="case-section-title">Technical Challenges</h2>
+
+        <p>
+          One of the main architectural challenges is
+          supporting multiple messaging platforms without
+          tightly coupling the application to any
+          individual provider.
+        </p>
+
+        <p>
+          The integration layer is designed around
+          shared interfaces and provider-specific
+          implementations, making the system easier
+          to extend with additional communication services.
+        </p>
+
+        <p>
+          Another important area is maintaining consistent
+          message and conversation data while processing
+          events received from external APIs.
+        </p>
+      </section>
+
+      <!-- Development Status -->
+      <section class="case-section">
+        <span class="case-section-num">06</span>
+        <h2 class="case-section-title">Development Status</h2>
+
+        <p>
+          Unified Inbox is currently in active development.
+          The focus is on improving integration architecture,
+          API consistency, error handling, and reliability.
+        </p>
+
+        <p>
+          The project serves as practical experience in
+          backend application development, relational
+          database design, and third-party API integration.
+        </p>
+      </section>
+
+      <!-- GitHub -->
+      <section class="case-section">
+        <span class="case-section-num">07</span>
+        <h2 class="case-section-title">Source Code</h2>
+
+        <p>
+          The source code and development history are
+          available on GitHub.
+        </p>
+
+        <div class="case-links">
+          <a
+            href="https://github.com/NotGlebO"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub Profile ↗
+          </a>
+        </div>
+      </section>
+
+      <hr class="case-separator">
+
+      <!-- Back navigation -->
+      <div class="case-nav">
+        <a
+          href="../index.html"
+          class="case-nav-link case-nav-prev"
+        >
+          <span class="case-nav-dir">&larr;</span>
+          All projects
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "id": "unified-inbox",
+      "title": "Unified Inbox",
+      "year": 2026,
+      "description": "Multi-platform messaging application",
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "REST APIs"
+      ],
+      "status": "In development",
+      "image": "assets/img/unified-inbox.png",
+      "url": "projects/unified-inbox.html",
+      "category": "selected"
+    }
+  ]
+}

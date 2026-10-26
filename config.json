@@ -1,16 +1,7 @@
 {
-  "name": "Jane Smith",
-  "name_ru": "Jane Smith",
-  "job": "Product Designer",
-  "job_ru": "Продуктовый дизайнер",
-  "domain": "example.com",
-  "url": "https://example.com",
-  "email": "hello@example.com",
-  "telegram": "janesmith",
-  "instagram": "janesmith",
-  "linkedin": "janesmith",
-  "goatcounter": "YOURSITE",
-  "location": "Working remotely",
-  "location_ru": "Работаю удалённо",
+  "name": "Gļebs Ostapko",
+  "job": "Java Backend Developer",
+  "location": "Riga, Latvia",
+  "github": "https://github.com/NotGlebO",
   "accent_color": "#F8401C"
 }

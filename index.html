@@ -82,34 +82,27 @@
   <!-- Main content -->
   <main class="main">
 
-    <!-- Selected projects -->
-    <h1 class="projects-title">
-      Selected projects
-    </h1>
-
-    <div
-      class="project-list"
-      id="selected-projects"
-    ></div>
-
-    <!-- Archive: hidden until projects are added -->
-    <section id="archive-section" hidden>
-
-      <h2 class="projects-title projects-title--archive">
-        Archive
-      </h2>
-
-      <div
-        class="project-list"
-        id="archive-projects"
-      ></div>
-
+    <section id="selected-section" hidden>
+        <h2 class="projects-title">Selected projects</h2>
+        <div class="project-list" id="selected-projects"></div>
     </section>
 
-  </main>
+    <section id="pet-section" hidden>
+        <h2 class="projects-title">Pet projects</h2>
+        <div class="project-list" id="pet-projects"></div>
+    </section>
+
+    <section id="archive-section" hidden>
+        <h2 class="projects-title">Archive</h2>
+        <div class="project-list" id="archive-projects"></div>
+    </section>
+
+  </main> 
 
   <!-- Original template functionality -->
   <script src="js/script.js"></script>
+  
+  <script src="js/project-status.js"></script>
 
   <!-- Dynamic project cards -->
   <script src="js/projects.js"></script>

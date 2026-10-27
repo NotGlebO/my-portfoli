@@ -1876,7 +1876,7 @@ button:focus-visible,
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(250px, 1fr);
   gap: 80px;
-  align-items: start;
+  align-items: center;
 }
 
 .about-content h1 {
@@ -1988,4 +1988,84 @@ button:focus-visible,
 .main--about.about-wide .about-viewport {
   width: 100%;
   max-width: none;
+}
+
+/* Project screenshots */
+
+.project-figure {
+    margin: 36px 0 56px;
+}
+
+.project-figure .case-img-full {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.project-figure .case-caption {
+    margin-top: 14px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.case-img-row img {
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Project status badges */
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+
+    padding: 5px 11px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* Archived - Gray */
+.project-status--archived {
+    color: #C5C5C8;
+    background: #303033;
+    border-color: #55555B;
+}
+
+/* In Development - Yellow */
+.project-status--development {
+    color: #F5C75B;
+    background: #403417;
+    border-color: #80641F;
+}
+
+/* Production - Green */
+.project-status--production {
+    color: #68DB9A;
+    background: #173A2A;
+    border-color: #286F4A;
+}
+
+#project-detail-status {
+    margin: 12px 0 24px;
+}
+
+.project-year-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.project-year-block .project-status {
+    font-size: 10px;
+    padding: 4px 7px;
 }

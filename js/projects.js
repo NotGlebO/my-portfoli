@@ -1,3 +1,4 @@
+
 async function loadProjects() {
     const response = await fetch("data/projects.json");
 
@@ -7,30 +8,57 @@ async function loadProjects() {
 
     const data = await response.json();
 
-    const selectedContainer =
-        document.getElementById("selected-projects");
-
-    const archiveContainer =
-        document.getElementById("archive-projects");
+    const categories = {
+        selected: {
+            section: document.getElementById("selected-section"),
+            container: document.getElementById("selected-projects")
+        },
+        pet: {
+            section: document.getElementById("pet-section"),
+            container: document.getElementById("pet-projects")
+        },
+        archive: {
+            section: document.getElementById("archive-section"),
+            container: document.getElementById("archive-projects")
+        }
+    };
 
     for (const project of data.projects) {
-        const container = project.category === "archive"
-            ? archiveContainer
-            : selectedContainer;
+        const category = categories[project.category];
+
+        if (!category) {
+            console.warn("Unknown project category:", project.category);
+            continue;
+        }
 
         const card = document.createElement("a");
         card.className = "project-item";
         card.href = project.url;
 
+        // Year and status
+        const yearBlock = document.createElement("div");
+        yearBlock.className = "project-year-block";
+
         const year = document.createElement("span");
         year.className = "project-year";
         year.textContent = project.year;
 
+        const status = createProjectStatus(project.status);
+
+        yearBlock.appendChild(year);
+
+        if (status) {
+            yearBlock.appendChild(status);
+        }
+
+        // Project image
         const image = document.createElement("img");
         image.className = "project-thumb";
         image.src = project.image;
         image.alt = project.title;
+        image.loading = "lazy";
 
+        // Project name
         const name = document.createElement("div");
         name.className = "project-name";
 
@@ -38,6 +66,7 @@ async function loadProjects() {
         title.className = "project-name-title";
         title.textContent = project.title;
 
+        // Project information
         const info = document.createElement("div");
         info.className = "project-info";
 
@@ -49,45 +78,38 @@ async function loadProjects() {
         technologies.className = "project-info-tags";
         technologies.textContent = project.technologies.join(", ");
 
-        const status = document.createElement("span");
-        status.className = "project-info-industry";
-        status.textContent = project.status;
-
+        // Arrow
         const arrow = document.createElement("span");
         arrow.className = "project-arrow";
         arrow.textContent = "→";
         arrow.setAttribute("aria-hidden", "true");
 
+        // Build project card
         name.appendChild(title);
 
         info.append(
             description,
-            technologies,
-            status
+            technologies
         );
 
         card.append(
-            year,
+            yearBlock,
             image,
             name,
             info,
             arrow
         );
 
-        container.appendChild(card);
+        category.container.appendChild(card);
     }
 
-    if (archiveContainer.children.length > 0) {
-        document.getElementById("archive-section").hidden = false;
+    // Hide empty project sections
+    for (const category of Object.values(categories)) {
+        category.section.hidden =
+            category.container.children.length === 0;
     }
 }
 
 loadProjects().catch(error => {
     console.error("Projects loading error:", error);
-
-    const container = document.getElementById("selected-projects");
-
-    if (container) {
-        container.textContent = "Unable to load projects.";
-    }
 });

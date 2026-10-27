@@ -2055,7 +2055,15 @@ button:focus-visible,
 }
 
 #project-detail-status {
-    margin: 12px 0 24px;
+    max-width: var(--text-col);
+    margin: 12px auto 24px;
+    padding-left: var(--content-gutter);
+}
+
+@media (max-width: 480px) {
+    #project-detail-status {
+        padding-left: 0;
+    }
 }
 
 .project-year-block {
@@ -2068,4 +2076,20 @@ button:focus-visible,
 .project-year-block .project-status {
     font-size: 10px;
     padding: 4px 7px;
+}
+
+
+#project-detail-status + .case-description {
+    margin-top: 12px;
+    margin-bottom: 32px;
+    text-indent: 0;
+}
+
+
+/* Spacing between project sections */
+
+#selected-section,
+#pet-section,
+#archive-section {
+    margin-bottom: 80px;
 }

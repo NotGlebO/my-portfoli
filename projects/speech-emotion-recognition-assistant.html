@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Speech Emotion Recognition Assistant — Gļebs Ostapko</title>
+
+    <meta
+        name="description"
+        content="Bachelor's thesis project exploring speech emotion recognition and adaptive local voice assistants using Python, SVM, Whisper and Ollama."
+    >
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <div class="nav-links">
+                    <a href="../index.html" class="active">Projects</a>
+                    <a href="../about.html">About</a>
+                </div>
+            </div>
+
+            <button
+                class="nav-burger"
+                aria-label="Menu"
+                aria-expanded="false"
+            >
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="nav-mobile" aria-hidden="true"></div>
+
+    <!-- Project -->
+    <main class="main main--case">
+
+        <div class="case-meta">
+            Bachelor's Thesis · Riga Technical University · 2026
+        </div>
+
+        <h1 class="case-h1">
+            Speech Emotion Recognition Assistant
+        </h1>
+
+        <div
+            id="project-detail-status"
+            data-project-id="speech-emotion-recognition-assistant"
+        ></div>
+
+        <p class="case-description">
+            A locally running voice assistant that analyzes
+            emotions in spoken language and adapts its
+            responses based on the detected emotional context.
+        </p>
+
+        <div class="case-body">
+
+            <!-- 01 -->
+            <section class="case-section">
+                <span class="case-section-num">01</span>
+                <h2 class="case-section-title">Overview</h2>
+
+                <p>
+                    This project was developed as the practical
+                    part of my bachelor's thesis at
+                    Riga Technical University.
+                </p>
+
+                <p>
+                    The goal was to investigate speech emotion
+                    recognition and integrate an emotion
+                    classification model into a local virtual
+                    assistant.
+                </p>
+
+                <p>
+                    Instead of relying only on transcribed
+                    speech, the system also analyzes acoustic
+                    characteristics to estimate the user's
+                    emotional state.
+                </p>
+            </section>
+
+            <!-- 02 -->
+            <section class="case-section">
+                <span class="case-section-num">02</span>
+                <h2 class="case-section-title">Tech Stack</h2>
+
+                <ul>
+                    <li><strong>Python</strong> — application development</li>
+                    <li><strong>Scikit-learn</strong> — machine learning models</li>
+                    <li><strong>Librosa</strong> — audio feature extraction</li>
+                    <li><strong>NumPy & Pandas</strong> — data processing</li>
+                    <li><strong>Vosk</strong> — voice command detection</li>
+                    <li><strong>Whisper</strong> — speech-to-text transcription</li>
+                    <li><strong>Ollama</strong> — local LLM execution</li>
+                    <li><strong>Llama 3.1 8B</strong> — response generation</li>
+                </ul>
+            </section>
+
+            <!-- 03 -->
+            <section class="case-section">
+                <span class="case-section-num">03</span>
+                <h2 class="case-section-title">System Architecture</h2>
+                <figure class="project-figure">
+                    <img
+                        class="case-img-full"
+                        src="../assets/img/struktur.png"
+                        alt="Speech emotion recognition assistant module structure"
+                        loading="lazy"
+                    >
+
+                    <figcaption class="case-caption">
+                        Modular structure of the local voice assistant.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    The application consists of independent
+                    Python modules responsible for audio capture,
+                    speech recognition, emotion classification,
+                    and response generation.
+                </p>
+
+                <p>
+                    The voice assistant is activated using
+                    the wake word "Bob". After recording the
+                    user's request, audio is processed through
+                    two main components.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Speech-to-text:</strong>
+                        Whisper converts recorded speech
+                        into text.
+                    </li>
+                    <li>
+                        <strong>Emotion recognition:</strong>
+                        An SVM classifier predicts emotions
+                        from acoustic features.
+                    </li>
+                    <li>
+                        <strong>Response generation:</strong>
+                        Ollama sends the transcribed text
+                        and emotional context to Llama 3.1.
+                    </li>
+                    <li>
+                        <strong>Conversation memory:</strong>
+                        Previous messages are maintained
+                        during the local session.
+                    </li>
+                </ul>
+
+                <p>
+                    Additional voice commands allow the user
+                    to reset conversation history or exit
+                    the application.
+                </p>
+            </section>
+
+            <!-- 04 -->
+            <section class="case-section">
+                <span class="case-section-num">04</span>
+                <h2 class="case-section-title">Emotion Recognition</h2>
+
+                <p>
+                    The emotion classification component
+                    analyzes acoustic properties of speech
+                    rather than relying exclusively on
+                    the meaning of spoken words.
+                </p>
+
+                <p>
+                    Audio preprocessing includes noise
+                    reduction, normalization, filtering,
+                    and silence removal.
+                </p>
+
+                <p>
+                    The processed signal is divided into
+                    overlapping segments, and features
+                    such as MFCC coefficients, pitch,
+                    energy, and spectral characteristics
+                    are extracted.
+                </p>
+
+                <p>
+                    The classifier predicts four
+                    emotion categories:
+                </p>
+
+                <ul>
+                    <li>Happy</li>
+                    <li>Sad</li>
+                    <li>Angry</li>
+                    <li>Neutral</li>
+                </ul>
+
+                <p>
+                    Predictions from individual segments
+                    are combined to estimate the dominant
+                    emotional state.
+                </p>
+            </section>
+
+            <!-- 05 -->
+            <section class="case-section">
+                <span class="case-section-num">05</span>
+                <h2 class="case-section-title">Model Comparison</h2>
+
+                <p>
+                    Four traditional machine learning
+                    algorithms were evaluated:
+                    Support Vector Machine,
+                    Logistic Regression,
+                    Random Forest, and k-Nearest Neighbors.
+                </p>
+
+                <p>
+                    The initial experiment used speech
+                    recordings from the RAVDESS dataset.
+                    SVM achieved the highest accuracy
+                    among the compared models and was
+                    selected for the assistant prototype.
+                </p>
+
+                <ul>
+                    <li><strong>SVM:</strong> 79.61% accuracy</li>
+                    <li><strong>Logistic Regression:</strong> 72.17%</li>
+                    <li><strong>Random Forest:</strong> 71.28%</li>
+                    <li><strong>kNN:</strong> 63.39%</li>
+                </ul>
+            </section>
+
+            <!-- 06 -->
+            <section class="case-section">
+                <span class="case-section-num">06</span>
+                <h2 class="case-section-title">Validation & Limitations</h2>
+
+                <p>
+                    The prototype was also evaluated
+                    with 16 speech recordings collected
+                    from eight participants.
+                </p>
+
+                <p>
+                    During testing, the initial model
+                    frequently predicted sadness for
+                    different speech inputs. The training
+                    dataset was subsequently expanded
+                    using SAVEE recordings to improve
+                    variation in real-world predictions.
+                </p>
+
+                <p>
+                    In the separate evaluation on
+                    16 participant recordings, the
+                    classifier correctly identified
+                    eight emotions, resulting in
+                    50% accuracy.
+                </p>
+
+                <p>
+                    These findings highlighted the gap
+                    between performance on controlled
+                    datasets and emotion recognition
+                    using unfamiliar voices in less
+                    controlled conditions.
+                </p>
+            </section>
+
+            <!-- 07 -->
+            <section class="case-section">
+                <span class="case-section-num">07</span>
+                <h2 class="case-section-title">Adaptive Assistant</h2>
+
+                <p>
+                    The detected emotion is used as
+                    additional context when generating
+                    the assistant's response.
+                </p>
+
+                <p>
+                    The system combines speech emotion
+                    predictions with the transcribed
+                    request. The language model can
+                    then adjust its communication style
+                    while preserving the meaning
+                    of the conversation.
+                </p>
+
+                <p>
+                    The project also explored how
+                    responses differed when emotional
+                    context was provided compared
+                    with text-only interactions.
+                </p>
+            </section>
+
+            <!-- 08 -->
+            <section class="case-section">
+                <span class="case-section-num">08</span>
+                <h2 class="case-section-title">What I Learned</h2>
+
+                <p>
+                    This project provided practical
+                    experience with modular Python
+                    applications, audio processing,
+                    machine learning pipelines,
+                    local model integration, and
+                    experimental validation.
+                </p>
+
+                <p>
+                    One of the most important lessons
+                    was that successful experimental
+                    results do not automatically
+                    translate into reliable performance
+                    with unseen real-world data.
+                </p>
+            </section>
+
+            <!-- 09 -->
+            <section class="case-section">
+                <span class="case-section-num">09</span>
+                <h2 class="case-section-title">Source Code</h2>
+
+                <p>
+                    The project is completed and preserved
+                    as an academic archive.
+                    Source code, setup instructions,
+                    and the machine learning implementation
+                    are available on GitHub.
+                </p>
+
+                <div class="case-links">
+                    <a
+                        href="https://github.com/NotGlebO/speech-emotion-recognition-assistant"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Source Code ↗
+                    </a>
+                </div>
+            </section>
+
+            <hr class="case-separator">
+
+            <div class="case-nav">
+                <a
+                    href="../index.html"
+                    class="case-nav-link case-nav-prev"
+                >
+                    <span class="case-nav-dir">&larr;</span>
+                    All projects
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/project-status.js"></script>
+    <script src="../js/project-detail.js"></script>
+
+</body>
+</html>

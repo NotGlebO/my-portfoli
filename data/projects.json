@@ -15,6 +15,22 @@
       "image": "assets/img/unified-inbox.png",
       "url": "projects/unified-inbox.html",
       "category": "pet"
+    },
+    {
+      "id": "speech-emotion-recognition-assistant",
+      "title": "Speech Emotion Recognition Assistant",
+      "year": 2026,
+      "description": "Emotion-aware local voice assistant",
+      "technologies": [
+        "Python",
+        "Scikit-learn",
+        "Whisper",
+        "Ollama"
+      ],
+      "status": "archived",
+      "image": "assets/img/speech-emotion.png",
+      "url": "projects/speech-emotion-recognition-assistant.html",
+      "category": "archive"
     }
   ]
 }

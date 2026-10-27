@@ -1,4 +1,15 @@
 async function loadProjectDetails() {
+    const container = document.getElementById("project-detail-status");
+
+    if (!container) return;
+
+    const projectId = container.dataset.projectId;
+
+    if (!projectId) {
+        console.warn("Missing data-project-id");
+        return;
+    }
+
     const response = await fetch("../data/projects.json");
 
     if (!response.ok) {
@@ -8,25 +19,18 @@ async function loadProjectDetails() {
     const data = await response.json();
 
     const project = data.projects.find(
-        item => item.id === "unified-inbox"
+        item => item.id === projectId
     );
 
     if (!project) {
-        return;
-    }
-
-    const container = document.getElementById(
-        "project-detail-status"
-    );
-
-    if (!container) {
+        console.warn("Project not found:", projectId);
         return;
     }
 
     const badge = createProjectStatus(project.status);
 
     if (badge) {
-        container.appendChild(badge);
+        container.replaceChildren(badge);
     }
 }
 

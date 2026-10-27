@@ -515,43 +515,7 @@ function initEmailCopy() {
 
 /* --- Vanilla Badge --- */
 
-function initVanillaBadge() {
-  const p = location.pathname;
-  if (p.includes('/projects/') || p.includes('about')) return;
 
-  const badge = document.createElement('div');
-  badge.innerHTML =
-    '<span style="opacity:.5">0 frameworks \u00b7 0 dependencies \u00b7 vanilla everything</span>' +
-    '<span class="badge-hint" style="display:none;opacity:.35;margin-left:8px" title="Press ~ to open terminal">~</span>';
-
-  badge.style.cssText =
-    'position:fixed;bottom:16px;left:50%;transform:translateX(-50%) translateY(20px);' +
-    'font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;' +
-    'color:#999;background:rgba(255,255,255,.55);padding:8px 16px;border-radius:6px;' +
-    '-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);' +
-    'border:1px solid rgba(0,0,0,.06);' +
-    'pointer-events:auto;white-space:nowrap;' +
-    'transition:all .3s;z-index:1;cursor:default;opacity:0';
-
-  document.body.appendChild(badge);
-
-  setTimeout(() => {
-    badge.style.opacity = '1';
-    badge.style.transform = 'translateX(-50%) translateY(0)';
-  }, 2000);
-
-  document.addEventListener('mousemove', (e) => {
-    const hot = e.clientY > window.innerHeight - 80;
-    const isDark = document.documentElement.classList.contains('dark') ||
-      (!document.documentElement.classList.contains('light') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    badge.style.background = hot
-      ? (isDark ? 'rgba(40,40,40,1)' : 'rgba(255,255,255,1)')
-      : (isDark ? 'rgba(40,40,40,.55)' : 'rgba(255,255,255,.55)');
-    badge.style.color = hot ? (isDark ? '#fff' : '#000') : '#999';
-    const hint = badge.querySelector('.badge-hint');
-    if (hint) hint.style.display = hot ? 'inline' : 'none';
-  });
-}
 
 /* --- Design System Toggle (Shift+G) --- */
 
